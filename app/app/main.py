@@ -1,4 +1,3 @@
-import time
 import random
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine, Column, Integer, String , Date, func
@@ -62,21 +61,13 @@ def generate_specific_employees(session, count):
 
 
 def query_male_f_employees(session):
-	start_time = time.time()
 	employees = session.query(Employee).filter(Employee.gender == "Male", Employee.full_name.like("F%")).all()
-	end_time = time.time()
 	for emp in employees:
 		print(f"{emp.full_name}, {emp.birth_date}, {emp.gender}, {emp.age()}")
-	print(f"Execution time: {end_time - start_time} seconds")
 
 
 def optimize_and_query_male_f_employees(session):
     with session.begin():
         session.execute("CREATE INDEX IF NOT EXISTS idx_gender ON employees(gender);")
         session.execute("CREATE INDEX IF NOT EXISTS idx_full_name ON employees(full_name);")
-    start_time = time.time()
-    employees = session.query(Employee).filter(Employee.gender == "Male", Employee.full_name.like("F%")).all()
-    end_time = time.time()
-    for emp in employees:
-        print(f"{emp.full_name}, {emp.birth_date}, {emp.gender}, {emp.age()}")
-    print(f"Execution time: {end_time - start_time} seconds")
+    query_male_f_employees(session)
