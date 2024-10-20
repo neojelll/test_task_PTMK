@@ -30,7 +30,7 @@ jobs:
     - name: Lint with Ruff
       run: |
         poetry run ruff format --check
-        poetry run check
+        poetry run ruff check
       working-directory: app
 
     - name: Test with pytest
