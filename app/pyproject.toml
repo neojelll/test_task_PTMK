@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 psycopg2 = "^2.9.10"
 sqlalchemy = "^2.0.36"
+ruff = "^0.7.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -23,3 +24,14 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 addopts = "-v --cov=app --cov-report term-missing --cov-fail-under=100"
+
+[tool.ruff]
+target-version = "py312"
+indent-width = 4
+fix = true
+
+[tool.ruff.format]
+indent-style = "space"
+
+[lint]
+ignore = ["E501"]
