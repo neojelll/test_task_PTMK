@@ -25,6 +25,11 @@ build-backend = "poetry.core.masonry.api"
 [tool.pytest.ini_options]
 addopts = "-v --cov=app --cov-report term-missing --cov-fail-under=100"
 
+[tool.coverage.run]
+omit = [
+    "app/cli.py",
+    ]
+
 [tool.ruff]
 target-version = "py312"
 indent-width = 4
