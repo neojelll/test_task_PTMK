@@ -16,10 +16,6 @@ class Employee(Base):
 
 	def age(self):
 		return (datetime.now().date() - self.birth_date).days // 365
-	
-	def save(self, session):
-		session.add(self)
-		session.commit()
 
 
 class EmployeeDAL():
@@ -32,7 +28,8 @@ class EmployeeDAL():
 
 	def add_employee(self, full_name, birth_date, gender):
 		employee = Employee(full_name=full_name, birth_date=birth_date, gender=gender)
-		employee.save(self.session)
+		self.session.add(employee)
+		self.session.commit()
 
 	def list_employees(self):
 		employees = self.session.query(Employee).order_by(Employee.full_name).all()
