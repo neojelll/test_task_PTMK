@@ -10,6 +10,16 @@ python = "^3.12"
 psycopg2 = "^2.9.10"
 sqlalchemy = "^2.0.36"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-sqlalchemy = "^0.2.1"
+pytest-cov = "^5.0.0"
+coverage = "^7.6.3"
+pytest-mock = "^3.14.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-v --cov=app --cov-report term-missing --cov-fail-under=100"
