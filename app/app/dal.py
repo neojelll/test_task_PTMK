@@ -35,11 +35,13 @@ class EmployeeDAL():
 		employees = self.session.query(Employee).order_by(Employee.full_name).all()
 		for emp in employees:
 			print(f"{emp.full_name}, {emp.birth_date}, {emp.gender}, {emp.age()}")
+		return employees
 
 	def query_male_f_employees(self):
 		employees = self.session.query(Employee).filter(Employee.gender == "Male", Employee.full_name.like("F%")).all()
 		for emp in employees:
 			print(f"{emp.full_name}, {emp.birth_date}, {emp.gender}, {emp.age()}")
+		return employees
 
 	def optimize_and_query_male_f_employees(self):
 		with self.session.begin():
