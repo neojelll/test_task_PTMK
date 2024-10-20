@@ -1,11 +1,15 @@
-from dal import EmployeeDAL, Employee, Base
+from .dal import EmployeeDAL
 from datetime import datetime, timedelta
 import random
+import os
+
+
+DB_URL = os.environ["DB_URL"]
 
 
 class EmployeeService():
 	def __init__(self):
-		self.dal = EmployeeDAL('postgresql://username:password@localhost:5432/your_database')
+		self.dal = EmployeeDAL(DB_URL)
 
 	def create_table(self):
 		self.dal.create_table()
@@ -16,7 +20,7 @@ class EmployeeService():
 	def list_employees(self):
 		self.dal.list_employees()
 
-	def generate_random_employees(self, full_name, birth_date, gender, count):
+	def generate_random_employees(self, count):
 		first_names = ["John", "Jane", "Alex", "Emily", "Michael", "Sarah", "David", "Anna", "Chris", "Laura"]
 		last_names = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor"]
 		genders = ["Male", "Female"]
