@@ -12,6 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
     - name: Install poetry
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
@@ -19,16 +24,21 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd app
         poetry install
+      working-directory: app
 
     - name: Lint with Ruff
       run: |
-        cd app
         poetry run ruff format --check
         poetry run check
+      working-directory: app
 
     - name: Test with pytest
       run: |
-        cd app
         poetry run pytest
+      working-directory: app
+
+    - name: Build package
+      run: |
+        poetry build
+      working-directory: app
