@@ -4,12 +4,9 @@ import random
 import os
 
 
-DB_URL = os.environ["DB_URL"]
-
-
 class EmployeeService():
 	def __init__(self):
-		self.dal = EmployeeDAL(DB_URL)
+		self.dal = EmployeeDAL(os.environ["DB_URL"])
 
 	def create_table(self):
 		self.dal.create_table()
@@ -40,4 +37,4 @@ class EmployeeService():
 		self.dal.query_male_f_employees()
 
 	def optimize_and_query_male_f_employees(self):
-		self.optimize_and_query_male_f_employees()
+		self.dal.optimize_and_query_male_f_employees()
