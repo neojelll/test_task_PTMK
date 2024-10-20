@@ -1,8 +1,7 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from sqlalchemy import create_engine, Column, Integer, String , Date, text
 from sqlalchemy.orm import sessionmaker, declarative_base
-from datetime import datetime, timedelta
-import random
+from datetime import datetime
 
 
 Base = declarative_base()
