@@ -14,24 +14,25 @@
 ```export DB_URL=<your db url>```
 6. чтобы узнать о доступных командах и параметрах, выполните:
 ```poetry run app -h```
-Вывод команды:
-```
-usage: app [-h] {1,2,3,4,5,6} ...
 
-Employee Management Application
+	Вывод команды:
+	```
+	usage: app [-h] {1,2,3,4,5,6} ...
 
-positional arguments:
-  {1,2,3,4,5,6}
-    1            Create employee table
-    2            Add an employee
-    3            List all employees
-    4            Generate test employees
-    5            Query male employees
-    6            Optimize and query male employees
+	Employee Management Application
 
-options:
-  -h, --help     show this help message and exit
-```
+	positional arguments:
+  	{1,2,3,4,5,6}
+    	1            Create employee table
+    	2            Add an employee
+    	3            List all employees
+    	4            Generate test employees
+    	5            Query male employees
+    	6            Optimize and query male employees
+
+	options:
+  	-h, --help     show this help message and exit
+	```
 
 ## Use Cases
 
