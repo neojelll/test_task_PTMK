@@ -10,6 +10,7 @@ python = "^3.12"
 psycopg2 = "^2.9.10"
 sqlalchemy = "^2.0.36"
 ruff = "^0.7.0"
+loguru = "^0.7.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
