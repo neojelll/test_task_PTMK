@@ -2,14 +2,36 @@
 
 ## Установка
 
-1. клонируйте репозиторий 
+1. установите  poetry
+```curl -sSL https://install.python-poetry.org | python3 -```
+2. клонируйте репозиторий 
 ```git clone https://github.com/neojelll/task-PTMK```
-2. Перейдите в директорию проекта:
+3. Перейдите в директорию проекта:
    ```cd app```
-3. установите зависимости
+4. установите зависимости
 ```poetry install```
-4. установите переменную окружения с ссылкой на базу данных
+5. установите переменную окружения с ссылкой на базу данных
 ```export DB_URL=<your db url>```
+6. чтобы узнать о доступных командах и параметрах, выполните:
+```poetry run app -h```
+Вывод команды:
+```
+usage: app [-h] {1,2,3,4,5,6} ...
+
+Employee Management Application
+
+positional arguments:
+  {1,2,3,4,5,6}
+    1            Create employee table
+    2            Add an employee
+    3            List all employees
+    4            Generate test employees
+    5            Query male employees
+    6            Optimize and query male employees
+
+options:
+  -h, --help     show this help message and exit
+```
 
 ## Use Cases
 
